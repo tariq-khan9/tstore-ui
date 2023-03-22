@@ -13,7 +13,7 @@ import NewArrivals from './homeComponents/NewArrivals';
 const Home = () => {
   
   
-
+// these are testing comments for github.
   return (
     <div className='my-margin' >
       
