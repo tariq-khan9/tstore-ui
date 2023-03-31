@@ -7,6 +7,19 @@ export const adminAuthApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'http://127.0.0.1:8000/api' }),
   endpoints: (builder) => ({
 
+    registerAdmin: builder.mutation({
+      query:(admin)=> {
+          return {
+              url: 'admin-register',
+              method: 'POST',
+              body:admin,
+              headers: {
+                  'Content-type': 'application/json',
+              }
+          }
+      }
+      }),
+
       loginAdmin: builder.mutation({
       query:(user)=> {
           return {
@@ -78,4 +91,4 @@ export const adminAuthApi = createApi({
   }),
 })
 
-export const { useLoginAdminMutation, useLogoutAdminMutation} = adminAuthApi
+export const { useLoginAdminMutation, useLogoutAdminMutation, useRegisterAdminMutation} = adminAuthApi

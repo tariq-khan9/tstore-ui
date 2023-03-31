@@ -30,12 +30,12 @@ const AdminLogin = () => {
       const res = await loginAdmin(actualData);
       if(res.data.status==='success'){
         setError({ status: true, msg: res.data.message, type: 'success' })
-        storeToken(res.data.token, res.data.email);
+        storeToken(res.data.token, res.data.email, res.data.name);
         dispatch(setLoggedInfo({
           email: res.data.email,
           name: res.data.name0
         }))
-       navigate('/admin-dashboard/admin')
+       navigate('/dashboard/admin-panel')
      }
       else
       {

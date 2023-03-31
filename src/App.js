@@ -9,6 +9,7 @@ import Garments from "./components/homeComponents/Garments";
 import Watches from "./components/homeComponents/Watches";
 import AdminPanel from "./components/admin/auth/AdminPanel";
 
+
 function App() {
   return (
    <>
@@ -25,7 +26,8 @@ function App() {
 
         <Route path="/dashboard" element={<Dashboard/>}>  
         <Route index element={<Products/>}/>
-        <Route path="/dashboard/adminpanel" element={<AdminPanel/>}/>
+        <Route path="/dashboard/admin-panel" element={<AdminPanel/>}/>
+        
          
         </Route>
         

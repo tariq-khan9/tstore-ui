@@ -25,6 +25,7 @@ const UserLogin = () => {
       email: data.get('email'),
       password: data.get('password'),
     }
+   try { 
     if (actualData.email && actualData.password) {
       const res =  await loginUser(actualData);
       console.log(res.data.token);
@@ -34,14 +35,16 @@ const UserLogin = () => {
               console.log(type)
               navigate('/')
             }
-            else if(res.data.status==='failed')
-            {
-              setError({ status: true, msg: res.data.message, type: 'error' })
+            else             {
+              setError({ status: true, msg: "Provided credentials are incorrect", type: 'error' })
             }
           } 
       else
       {
         setError({ status: true, msg:"All fields are required", type: 'error' })
+      } }
+      catch(e){
+        setError({ status: true, msg:"Server Connection Error!", type: 'error' })
       }
     
   }

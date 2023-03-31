@@ -2,9 +2,10 @@ import {React, useState, useEffect} from 'react';
 import '../admin/Sidebar.css';
 import {Container, Row, Col} from 'react-bootstrap';
 import pic1 from '../../img/garments2.png';
+import garment1 from '../../img/garment1.jpg';
 import axios from 'axios';
 import  styled  from 'styled-components';
-import { border } from '@mui/system';
+
 
 
 
@@ -22,7 +23,9 @@ padding-bottom: 30px;
 `;
 
 const CategoryItem = styled.div`
-  margin: 0px;
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
   margin-bottom: 30px;
   height: 50vh;
   background-color: black;
@@ -72,7 +75,52 @@ const Details = styled.h6`
 const Garments = () => {
 
     const [allData, setAllData] = useState([]);
+// static array of objects
 
+const staticData = [
+  {
+    id: 1,
+    name: "Garment-1",
+    price: 345,
+    text: "Lorem Ipsum is not simply random text. It has roots in a piece of , making it over 2000 years old."
+  },
+  {
+    id: 2,
+    name: "Garment-2",
+    price: 356,
+    text: "Lorem Ipsum is not simply random text. It has roots in a piece of , making it over 2000 years old."
+  },
+  {
+    id: 3,
+    name: "Garment-3",
+    price: 345,
+    text: "Lorem Ipsum is not simply random text. It has roots in a piece of , making it over 2000 years old."
+  },
+  {
+    id: 4,
+    name: "Garment-4",
+    price: 345,
+    text: "Lorem Ipsum is not simply random text. It has roots in a piece of , making it over 2000 years old."
+  },
+  {
+    id: 5,
+    name: "Garment-5",
+    price: 875,
+    text: "Lorem Ipsum is not simply random text. It has roots in a piece of , making it over 2000 years old."
+  },
+  {
+    id: 6,
+    name: "Garment-6",
+    price: 645,
+    text: "Lorem Ipsum is not simply random text. It has roots in a piece of , making it over 2000 years old."
+  },
+  {
+    id: 7,
+    name: "Garment-7",
+    price: 645,
+    text: "Lorem Ipsum is not simply random text. It has roots in a piece of , making it over 2000 years old."
+  }
+]
    
 
  const getData= async()=> {
@@ -107,7 +155,8 @@ const Garments = () => {
       </Row>
       </Container>
      <Container1>
-      {allData.map((item)=>(
+      
+      {/* {allData.map((item)=>(
         <CategoryItem key={item.id}>
           <Image src={item.image_path}/>
           <Info>
@@ -116,7 +165,19 @@ const Garments = () => {
             <Details>Description: {item.description}</Details>
           </Info>
         </CategoryItem>
+      ))} */}
+
+     {staticData.map((item)=>(
+        <CategoryItem key={item.id}>
+            <Image src={garment1}/>
+          <Info>
+          <Title>{item.name}</Title>
+            <Details>Price: {item.price}</Details>
+            <Details>Description: {item.text}</Details>
+          </Info>
+        </CategoryItem>
       ))}
+   
       
      
       

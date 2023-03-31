@@ -4,6 +4,7 @@ import { useState } from 'react';
 import '../../admin/Sidebar.css'
 import AllUsers from './AllUsers';
 import ModifyAdmin from './ModifyAdmin';
+import AdminRegistration from './AdminRegistration';
 
 const TabPanel = (props) => {
     const { children, value, index } = props;
@@ -31,6 +32,7 @@ const TabPanel = (props) => {
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <Tabs value={value} textColor='secondary' indicatorColor='secondary' onChange={handleChange}>
                   <Tab label='All Users' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab>
+                  <Tab label='Add New Admin' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab>
                   <Tab label='Modify Admin' sx={{ textTransform: 'none', fontWeight: 'bold' }}></Tab>
                   
                 </Tabs>
@@ -39,6 +41,9 @@ const TabPanel = (props) => {
               <AllUsers/>
               </TabPanel>
               <TabPanel value={value} index={1}>
+              <AdminRegistration/>
+              </TabPanel>
+              <TabPanel value={value} index={2}>
                 <ModifyAdmin/>
               </TabPanel>
              
